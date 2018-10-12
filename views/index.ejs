@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body id="welcome">
+
+
+    <div class="alert alert-primary" role="alert">
+<%=message%>
+    </div>
+
+    <form action="/login" method="POST">
+      
+      <div class="form-group">
+        <input class="form-control form-control-sm" type="text" name="email" placeholder="Votre identifiant">
+      </div>
+
+      <div class="form-group">
+        <input class="form-control form-control-sm" type="text" name="password" placeholder="votre mot de passe">
+      </div>
+
+      <div class="form-group">
+        <input class="btn btn-info btn-sm" type="submit" value="valider">
+      </div>
+
+    </form>
+
+    <a href="/subscribe">Pas encore inscrit ? Inscrivez-vous ici
+    </a>
+
+
+
+  </body>
+</html>

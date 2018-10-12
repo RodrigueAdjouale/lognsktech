@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body id="home">
+
+
+    <%- include('navigation')-%>
+
+    <%for(var i=0; i<orders.length; i++){%>
+
+      <ul>
+       <li>Commande n° 4556677</li>
+       <li>Total: <%=orders[i].total%>€</li>
+       <li>frais de port : <%=orders[i].fdp%>€</li>
+     </ul>
+
+  <%  }%>
+
+
+    </div>
+
+    <div id="menu-right">
+      <ul>
+        <li><a href="/add-order?total=500&fdp=20"><img class="picto" src="basket.svg"></a></li>
+        <li><a href="/"><img class="picto" src="logout.svg"></a></li>
+      </ul>
+    </div>
+
+
+  </body>
+</html>
