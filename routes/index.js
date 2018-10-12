@@ -81,7 +81,48 @@ router.get('/order', function(req, res, next) {
     })
   })
 });
+////// ajout route
+router.post('/add-user', function(req, res, next) {
 
+var hash = bcrypt.hashSync(req.body.password, salt);
+
+  var newUser = new UserModel({
+    lastName: req.body.lastName,
+    firstName: req.body.firstName,
+    email: req.body.email,
+    password: hash,
+    phone: req.body.phone,
+    Address: req.body.Address,
+    zipcode: req.body.zipcode
+  });
+
+  UserModel.find({
+      email:req.body.email
+   },function(err, allUsers) {
+
+     if (allUsers.length >= 1) {
+       req.session._id = allUsers[0]._id
+        req.session.dataUser = allUsers[0]
+        res.render('account', {users: allUsers});
+     }
+     else{
+       newUser.save(
+         function(error, oneUser) {
+         UserModel.find({_id: oneUser._id},
+          function(err, usersWithThisId) {
+            console.log("usersWithThisId",usersWithThisId);
+           res.render('account', {users: usersWithThisId});
+         })
+       })
+     }
+  })
+
+
+
+});
+
+
+////
 router.post('/add-user', function(req, res, next) {
 
 var hash = bcrypt.hashSync(req.body.password, salt);
